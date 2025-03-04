@@ -8,6 +8,26 @@ const notificationRoute = (router) => {
     '/sendQuery',
     notificationController.sendNewQuery
   );
+
+  router.post(
+    '/subscribe',
+    notificationController.newSubscriber
+  );
+
+  router.post(
+    '/schedule',
+    notificationController.saveNewSchedule
+  );
+
+  router.get(
+    '/schedule/list',
+    notificationController.getSchedules
+  );
+
+  router.get(
+    '/schedule/today',
+    notificationController.getCurrentDateSchedule
+  );
 };
 
 exports.notificationRoute = notificationRoute;

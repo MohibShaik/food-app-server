@@ -23,13 +23,26 @@ const menuRoute = (router) => {
     menuController.getMenuCategories
   );
   router.get('/menu', menuController.getMenu);
-  router.post(
-    '/:menuItemId/update',
+
+  router.put(
+    '/menu/:menuItemId/update',
+    upload.single('file'),
     menuController.updateMenuItem
   );
+  
   router.delete(
-    '/:menuItemId/delete',
+    '/menu/:menuItemId/delete',
     menuController.deleteMenuItem
+  );
+
+  router.delete(
+    '/category/:categoryId/delete',
+    menuController.deleteCategory
+  );
+
+  router.put(
+    '/category/:categoryId/update',
+    menuController.updateCategory
   );
 };
 

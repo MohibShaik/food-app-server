@@ -130,3 +130,47 @@ exports.deleteMenuItem = async function (
       .send(errorResponse);
   }
 };
+
+exports.deleteCategory = async function (
+  request,
+  response
+) {
+  try {
+    const saveMenuCatResponse =
+      await menuService.deleteCategory(request);
+    response
+      .status(saveMenuCatResponse.statusCode)
+      .send(saveMenuCatResponse);
+  } catch (error) {
+    const errorResponse = utils.errorResponseBuilder(
+      request,
+      response,
+      error
+    );
+    response
+      .status(errorResponse.statusCode)
+      .send(errorResponse);
+  }
+};
+
+exports.updateCategory = async function (
+  request,
+  response
+) {
+  try {
+    const saveMenuCatResponse =
+      await menuService.updateCategory(request);
+    response
+      .status(saveMenuCatResponse.statusCode)
+      .send(saveMenuCatResponse);
+  } catch (error) {
+    const errorResponse = utils.errorResponseBuilder(
+      request,
+      response,
+      error
+    );
+    response
+      .status(errorResponse.statusCode)
+      .send(errorResponse);
+  }
+};
